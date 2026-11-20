@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to A-Frame</title>
+
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="metal" src="../06-IMGs/rusty_metal_grid_diff_4k.jpg" />
+        <img
+          id="metal-NRM"
+          src="../06-IMGs/rusty_metal_grid_4k.blend/textures/rusty_metal_grid_disp_4k.jpg"
+        />
+        <img id="brick" src="../06-IMGs/broken_brick_wall_diff_4k.jpg" />
+        <img id="brick-NRM" src="../06-IMGs/broken_brick_wall_disp_4k.png" />
+      </a-assets>
+
+      <a-box
+        color="#FFFFFF"
+        src="#metal"
+        normal-map="#metal-NRM"
+        normal-scale="1 -1"
+        roughness="0.5"
+        width="4"
+        height="4"
+        depth="4"
+        position="-2 1.5 -9"
+        scale="-1 1 1"
+        side="double"
+      >
+      </a-box>
+
+      <a-box
+        material="color: #FFFFFF;
+                  src: #brick;
+                  repeat: 2 2;
+                  normal-map: #brick-NRM;
+                  normal-texture-repeat: 2 2;
+                  normal-scale: 1 -1;
+                  roughness: 0.9"
+        width="4"
+        height="4"
+        depth="4"
+        position="2 1.5 -9"
+        scale="-1 1 1"
+        side="double"
+      >
+      </a-box>
+
+      <a-sphere
+        material="color: #0000AA;
+                      roughness: 0.2;
+                      shader: standard"
+        radius="0.5"
+        position="-2 1.5 -8"
+      >
+      </a-sphere>
+
+      <a-sphere
+        material="color: #AA0000;
+                      roughness: 0.2;
+                      shader: flat;
+                      opacity: 0.5;
+                      transparent: true"
+        radius="0.5"
+        position="2 1.5 -8"
+      >
+      </a-sphere>
+    </a-scene>
+  </body>
+</html>

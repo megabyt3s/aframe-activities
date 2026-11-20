@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to A-Frame</title>
+
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="L10-img-BG" src="../08/assets/L10-img-background.jpg" />
+      </a-assets>
+
+      <a-box color="#AA0000" height="1.5" position="-1 0.5 -4"> </a-box>
+
+      <a-entity
+        geometry="primitive: box; height: 1.5"
+        material="shader: standard; color: #AA0000"
+        position="1 0.5 -4"
+      >
+      </a-entity>
+
+      <a-image src="#L10-img-BG" position="0 1.6 -11" scale="12 9 1"> </a-image>
+
+      <a-entity
+        geometry="primitive: cylinder;
+                      thetaLength: 90;
+                      thetaStart: 135;
+                      radius: 0.707;
+                      height: 0.833;
+                      openEnded: true"
+        material="shader: flat;
+                      color: #FFFFFF;
+                      side: double;
+                      src: #L10-img-BG"
+        position="0 1.5 0"
+        scale="-10 10 10"
+      >
+      </a-entity>
+    </a-scene>
+  </body>
+</html>

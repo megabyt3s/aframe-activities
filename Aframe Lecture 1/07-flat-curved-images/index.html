@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to A-Frame</title>
+
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img src="../07/assets/L09-img-1024x768-flat.jpg" id="L09-img-01" />
+        <img src="../07/assets/L09-img-1024x768-curved.jpg" id="L09-img-02" />
+        <img
+          src="../07/assets/L09-img-1024x768-curved-layout-R.jpg"
+          id="L09-img-03"
+        />
+        <img
+          src="../07/assets/L09-img-1024x768-curved-layout-C.jpg"
+          id="L09-img-04"
+        />
+        <img
+          src="../07/assets/L09-img-1024x768-curved-layout-L.jpg"
+          id="L09-img-05"
+        />
+      </a-assets>
+
+      <a-image
+        src="#L09-img-01"
+        position="0 1.5 -3"
+        width="1"
+        height="0.75"
+        scale="3 3 1"
+      >
+      </a-image>
+
+      <!-- CENTER -->
+      <a-curvedimage
+        src="#L09-img-04"
+        theta-length="90"
+        theta-start="135"
+        radius="0.707"
+        height="0.833"
+        position="0 1.5 0"
+      >
+      </a-curvedimage>
+
+      <!-- LEFT -->
+      <a-curvedimage
+        src="#L09-img-05"
+        theta-length="50"
+        theta-start="220"
+        radius="0.5"
+        height="0.327"
+        position="0 1.5 0"
+        scale="3 3 3"
+      >
+      </a-curvedimage>
+
+      <!-- RIGHT -->
+      <a-curvedimage
+        src="#L09-img-03"
+        theta-length="50"
+        theta-start="90"
+        radius="0.5"
+        height="0.327"
+        position="0 1.5 0"
+        scale="3 3 3"
+      >
+      </a-curvedimage>
+
+      <a-box
+        color="#AA0000"
+        opacity="0.5"
+        width="3"
+        height="0.1"
+        depth="3"
+        position="0 1.5 -1.5"
+      >
+      </a-box>
+    </a-scene>
+  </body>
+</html>

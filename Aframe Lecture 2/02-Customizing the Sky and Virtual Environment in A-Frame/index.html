@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <title>Customizing the Sky and Virtual Environment in A-Frame</title>
+</head>
+<body>
+    <a-scene>
+        <!-- Asset Management System -->
+        <a-assets>
+            <img id="floor" src="assets/concrete_floor_damaged_01_4k.blend/textures/concrete_floor_damaged_01_diff_4k.jpg">
+            <img id="floor-NRM" src="assets/concrete_floor_damaged_01_4k.blend/textures/concrete_floor_damaged_01_nor_gl_4k.jpg" alt="">
+            <img id="floor-roughness" src="assets/concrete_floor_damaged_01_4k.blend/textures/concrete_floor_damaged_01_rough_4k.jpg" alt="">
+            <img id="floor-ao" src="assets/concrete_floor_damaged_01_4k.blend/textures/concrete_floor_damaged_01_ao_4k.jpg"></img>
+            <img id="clear-sunny-sky" src="assets/clear-sunny-sky.jpg">
+            <img id="360-panorama" src="assets/360-image.jpg">
+        </a-assets>
+
+        <!-- <a-sky
+        src="#clear-sunny-sky"
+        rotation="0 64 0">
+        </a-sky> -->
+   
+<!-- PLANE  -->
+        <!-- <a-plane material="color: #FFFFFF; 
+                          src: #floor; 
+                          repeat: 5 5; 
+                          normal-map: #floor-NRM; 
+                          normal-textture-repeat: 5 5; 
+                          floor-roughness: #floor-roughness; 
+                          repeat: 5 5; 
+                          roughness:0.9; 
+                          ao-map: #floor-ao; 
+                          repeat: 5 5; 
+                          ao: 0.5;"
+                 position="0 0 0"
+                 rotation="-90 0 0"
+                 scale="1000 1000 1"
+                >
+        </a-plane> -->
+      
+<!-- CARTOON-STYLED -->
+      <!-- <a-plane
+        material="color: #00AA00; shader: flat"
+        rotation="-90 0 0"
+        scale="10000 10000 1">
+      </a-plane> -->
+     
+<!-- DISPLAY 360-PANAROMA IMAGE -->
+      <a-sky src="#360-panorama"></a-sky>
+    
+      <a-entity position="0 2 5">
+        <a-camera rotation="-15 0 0"></a-camera>
+      </a-entity>
+
+      <a-light
+        type="ambient"
+        intensity="0.7"
+        color="#FFFFFF">
+      </a-light>
+
+      <a-light
+        type="directional"
+        intensity="0.8"
+        position="-1 5 3">
+      </a-light> 
+    </a-scene>
+</body>
+</html>

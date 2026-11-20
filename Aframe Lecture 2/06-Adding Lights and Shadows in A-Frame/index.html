@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <title>Adding Lights and Shadows in A-Frame</title>
+  </head>
+
+  <body>
+    <a-scene>
+      <!-- Asset Management System -->
+      <a-assets>
+        <img id="floor" src="assets/floor-1024.jpg" />
+        <img id="firefox" src="assets/firefox-quantum-1024.png" />
+        <a-asset-item id="room" src="assets/room.gltf"></a-asset-item>
+      </a-assets>
+
+      <!-- AMBIENT LIGHT -->
+      <a-entity light="type: ambient; intensity: 0.2"></a-entity>
+
+      <!-- POINT LIGHT -->
+      <a-entity
+        light="type: point; intensity: 0.8; distance: 10; castShadow: true"
+        position="0 2 1.5"
+        animation="property: light.intensity; from: 0.8; to: 0; loop: true; dir: alternate; dur: 5000; easing: easeInOutCubic"
+      >
+      </a-entity>
+
+      <!-- SPOT LIGHT -->
+      <a-entity
+        light="type: spot; target: #orange-box; color: #C40070; angle: 30; penumbra: 0.1; castShadow: true"
+        position="0 3 1"
+      >
+      </a-entity>
+
+      
+
+      <!-- Sky -->
+      <a-sky color="#FFFFFF"></a-sky>
+
+      <!-- Ground -->
+      <a-plane
+        src="#floor"
+        rotation="-90 0 0"
+        scale="10000 10000 1"
+        repeat="1000 1000"
+      >
+      </a-plane>
+
+      <!-- Camera -->
+      <a-entity position="0 0 5">
+        <a-camera></a-camera>
+      </a-entity>
+
+      <!-- Blue Room | x = 4m   y ≈ 5m   z = 14m -->
+      <a-entity gltf-model="#room"> </a-entity>
+
+      <!-- Firefox Quantum Logo -->
+      <a-image src="#firefox" scale="2 2 1" position="-2 3 -2.49"> </a-image>
+
+      <!-- Light Grey Panel -->
+      <a-box color="#E0E0E0" scale="5 0.1 1" position="0 4 0"> </a-box>
+
+      <!-- Yellow Box -->
+      <a-box color="#FFEB3B" scale="0.5 0.5 0.5" position="-1 1 0">
+        <a-animation
+          attribute="rotation"
+          to="0 360 0"
+          repeat="indefinite"
+          dur="5000"
+          easing="linear"
+        >
+        </a-animation>
+      </a-box>
+
+      <!-- Orange Box -->
+      <a-box
+        id="orange-box"
+        color="#FF5722"
+        scale="0.5 0.5 0.5"
+        position="1 1 0"
+      >
+        <a-animation
+          attribute="rotation"
+          to="0 360 0"
+          repeat="indefinite"
+          dur="5000"
+          easing="linear"
+        >
+        </a-animation>
+      </a-box>
+    </a-scene>
+  </body>
+</html>
